@@ -1,0 +1,125 @@
+html {
+  scroll-behavior: smooth;
+}
+
+// General Style
+.container, .container-fluid {
+  padding-left: $container-padding-x;
+  padding-right: $container-padding-x;
+}
+
+.container {
+  max-width: 1172px;
+  @include media-breakpoint-up(md) {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+.container-fluid {
+  max-width: 1656px;
+  @include media-breakpoint-up(md) {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+// Buttons
+.btn {
+  &.btn-primary {
+    &:hover, &:focus {
+      background-color: $blue-600;
+    }
+    &:active {
+      background-color: $blue-700;
+    }
+  }
+  &.btn-gradient {
+    @include gradientAnimation(90deg, #6196EC, #34BADD);
+    border: none;
+    overflow: hidden;
+    color: $white;
+    &:hover, &:focus, &:active {
+      color: $white;
+    }
+  }
+  &.btn-light {
+    background-color: $white;
+    color: $primary;
+    &:hover, &:focus {
+      border-color: $primary;
+      background-color: $primary;
+      color: $white;
+      .gradient-text {
+        background: none;
+        background-clip: unset;
+        -webkit-background-clip: unset;
+        -webkit-text-fill-color: unset;
+      }
+    }
+    &:active {
+      background-color: $blue-700;
+      border-color: $blue-700;
+      .gradient-text {
+        background: none;
+        background-clip: unset;
+        -webkit-background-clip: unset;
+        -webkit-text-fill-color: unset;
+      }
+    }
+  }
+
+  &.btn-sm {
+    font-weight: 400;
+  }
+  &.btn-lg {
+    @include media-breakpoint-down(xl) {
+      padding: 8px 25px;
+    }
+    @include media-breakpoint-down(sm) {
+      padding: 8px 16px;
+    }
+  }
+}
+
+h1, .h1 {
+  @include media-breakpoint-down(lg) { 
+    font-size: rem-calc(35);
+  }
+}
+
+h2, .h2 {
+  @include media-breakpoint-down(lg) { 
+    font-size: rem-calc(35);
+  }
+}
+
+.border-purple {
+  border-color: $purple !important;
+}
+
+.border-teal {
+  border-color: $teal !important;
+}
+
+.gradient-text {
+  background: linear-gradient(87deg, #6196EC -4.41%, #34BADD 59.04%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.embed-video {
+  background: $gray-200;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.scroll-margin-top-30 {
+  scroll-margin-top: 30px;
+}
+
+.object-fit-cover {
+  object-fit: cover;
+}

@@ -1,0 +1,67 @@
+@mixin gradientAnimation( $deg, $start, $end, $transTime: 0.2s ) {
+  background-size: 100%;
+  background-image: linear-gradient($deg, $start, $end);
+  position: relative;
+  z-index: 1;
+  &:before {
+    background-image: linear-gradient($deg, $end, $start);
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0; 
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    z-index: -1;
+    transition: opacity $transTime;
+  }
+  &:hover, &:focus {
+    &:before {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin line-clamp($n: 1) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $n;
+}
+
+@mixin horizontal-align($left: 50%, $translateX: 50%) {
+  position: absolute;
+  left: $left;
+  -webkit-transform: translateX(-$translateX);
+  -moz-transform: translateX(-$translateX);
+  -ms-transform: translateX(-$translateX);
+  -o-transform: translateX(-$translateX);
+  transform: translateX(-$translateX);
+}
+
+@mixin vertical-align($top: 50%, $translateY: 50%) {
+  position: absolute;
+  top: $top;
+  -webkit-transform: translateY(-$translateY);
+  -moz-transform: translateY(-$translateY);
+  -ms-transform: translateY(-$translateY);
+  -o-transform: translateY(-$translateY);
+  transform: translateY(-$translateY);
+}
+
+@mixin vertical-horizontal-align($top: 50%, $translateY: 50%, $left: 50%, $translateX: 50%) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+@mixin spin-animation($speed: 2s, $direction: clockwise-spin) {
+  -webkit-animation: $direction $speed linear infinite;
+  animation: $direction $speed linear infinite;
+}
