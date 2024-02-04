@@ -61,8 +61,14 @@ function wpse_sendmail() {
   $body = '<p>От кого: ' . $name . "</p>";
   $body .= '<p>Сообщение: ' . $message . "</p>";
   $headers = "Content-Type: text/html; charset=UTF-8\r\n";
+  $subject = 'Присоединение специалиста';
+
+  if (isset($_POST['email']) && $_POST['email']) {
+    $subject = 'Запись к специалисту';
+    $email .= ", " . $_POST['email'];
+  }
     
-  if(mail($email, "Сообщение с сайта", $body, $headers)) {
+  if(mail($email, $subject, $body, $headers)) {
     echo 'Message has been successfully sent';
   } else {
     echo 'Failed to send the message';

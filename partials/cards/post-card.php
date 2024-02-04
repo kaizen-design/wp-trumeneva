@@ -23,7 +23,7 @@
       <?php endif; ?>
     </div>
     <div class="card-body p-3 d-flex flex-column gap-2">
-      <span><?=get_the_date()?></span>
+      <span><?=get_the_date('', $postID)?></span>
       <h2 class="h6 fw-medium text-black mb-0"><?=$post_title?></h2>
       <p class="mb-0"><?=$excerpt?></p>
     </div>

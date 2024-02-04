@@ -33,7 +33,7 @@ $border_color = (new Specialists)->getBorderColor($data['category']);
           />
         </div>
         <div class="d-flex flex-column gap-1 align-items-center">
-          <h1 class="card-name fw-medium h3 mb-0"><?php single_post_title(); ?></h1>
+          <h1 class="card-name fw-medium h3 mb-0 text-center"><?php single_post_title(); ?></h1>
           <?php if ($data['telegram']): ?>
             <p class="card-contact fw-medium mb-0"><?=$data['telegram']?></p>
           <?php endif; ?>  
@@ -59,7 +59,7 @@ $border_color = (new Specialists)->getBorderColor($data['category']);
           <?php endif; ?> 
         </div>
         
-        <button type="button" class="btn btn-gradient rounded-pill text-truncate" data-bs-toggle="modal" data-bs-target="#contactSpecialistModal" data-specialist="<?php single_post_title() ?>">Связаться со специалистом</button>
+        <button type="button" class="btn btn-gradient rounded-pill text-truncate" data-bs-toggle="modal" data-bs-target="#contactSpecialistModal" data-specialist="<?php single_post_title() ?>" data-email="<?=isset($data['email']) && $data['email'] ? $data['email'] : ''?>">Связаться со специалистом</button>
         
         <?php if ($data['docs'] || $data['education_place'] || $data['education_date_start'] || $data['education_date_end']): ?>
           <ul class="card-meta mb-0 list-unstyled d-flex flex-column">
@@ -156,7 +156,7 @@ $border_color = (new Specialists)->getBorderColor($data['category']);
           </div>
         </div>
         
-        <button type="button" class="btn btn-gradient rounded-pill text-truncate d-lg-none" data-bs-toggle="modal" data-bs-target="#contactSpecialistModal" data-specialist="<?php single_post_title(); ?>">Связаться со специалистом</button>
+        <button type="button" class="btn btn-gradient rounded-pill text-truncate d-lg-none" data-bs-toggle="modal" data-bs-target="#contactSpecialistModal" data-specialist="<?php single_post_title(); ?>" data-email="<?=isset($data['email']) && $data['email'] ? $data['email'] : ''?>">Связаться со специалистом</button>
         
         <?php if ($data['about_me']): ?>
           <div id="about" class="scroll-margin-top-30 d-flex flex-column gap-3 gap-lg-4">

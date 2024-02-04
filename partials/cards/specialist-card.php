@@ -72,5 +72,5 @@
     </div>
   <?php endif; ?> 
 
-  <button type="button" class="btn btn-sm btn-gradient rounded-pill text-truncate position-relative z-1" data-bs-toggle="modal" data-bs-target="#contactSpecialistModal" data-specialist="<?=$post_title?>">Связаться со специалистом</button>
+  <button type="button" class="btn btn-sm btn-gradient rounded-pill text-truncate position-relative z-1" data-bs-toggle="modal" data-bs-target="#contactSpecialistModal" data-specialist="<?=$post_title?>" data-email="<?=isset($data['email']) && $data['email'] ? $data['email'] : ''?>">Связаться со специалистом</button>
 </div>
