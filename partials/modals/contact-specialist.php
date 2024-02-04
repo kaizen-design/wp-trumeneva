@@ -23,8 +23,8 @@
         <fieldset class="form-result d-flex flex-column gap-4 align-items-center d-none">
           <img src="<?=get_stylesheet_directory_uri(); ?>/assets/img/icons/success.svg" alt="" />
           <div class="d-flex flex-column gap-3">
-            <h3 class="mb-0 text-center">Ваше сообщение Ивану успешно отправлено</h3> 
-            <div class="alert alert-primary text-center mb-0 border-0" role="alert">Он свяжется с вами в ближайшее время.
+            <h3 class="mb-0 text-center">Ваше сообщение успешно отправлено</h3> 
+            <div class="alert alert-primary text-center mb-0 border-0" role="alert">Специалист свяжется с вами в ближайшее время.
             </div> 
           </div>
         </fieldset>  

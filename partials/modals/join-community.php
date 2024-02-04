@@ -1,15 +1,27 @@
+<?php 
+  $title = get_field('join_form_title', 'option');
+  $text = get_field('join_form_text', 'option');
+  $success_message = get_field('join_form_sucess_message', 'option');
+?>
+
 <div class="modal fade" id="joinCommunityModal" tabindex="-1" aria-labelledby="joinCommunityModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-md">
     <div class="modal-content">
       
       <form class="contact-form">
         <fieldset class="form-main d-flex flex-column gap-4">
-          <div class="d-flex flex-column gap-3">
-            <h3 class="mb-0 text-center">Присоединиться к комьюнити</h3> 
-            <div class="alert alert-primary text-center mb-0 border-0" role="alert">
-              Заполните пожалуйста форму, и мы свяжемся с вами для бесплатного размещения на сайте.
-            </div> 
-          </div>
+          <?php if ($title || $text): ?>
+            <div class="d-flex flex-column gap-3">
+              <?php if ($title): ?>
+                <h3 class="mb-0 text-center"><?=$title?></h3> 
+              <?php endif; ?>
+              <?php if ($text): ?>
+                <div class="alert alert-primary text-center mb-0 border-0" role="alert">
+                  <?=$text?>
+                </div> 
+              <?php endif; ?>  
+            </div>
+          <?php endif; ?>  
           <div class="d-flex flex-column">
             <label for="contactNameInput" class="form-label">Номер телефона или ник в Telegram</label>
             <input type="text" name="name" class="form-control" id="contactNameInput" placeholder="Номер телефона или ник в Telegram" aria-describedby="emailHelp" required>
@@ -22,9 +34,11 @@
         </fieldset>
         <fieldset class="form-result d-flex flex-column gap-4 align-items-center d-none">
           <img src="<?=get_stylesheet_directory_uri(); ?>/assets/img/icons/success.svg" alt="" />
-          <div class="d-flex flex-column gap-3">
-            <h3 class="mb-0 text-center">Мы свяжемся с вами в ближайшее время</h3>
-          </div>
+          <?php if ($success_message): ?>
+            <div class="d-flex flex-column gap-3">
+              <h3 class="mb-0 text-center"><?=$success_message?></h3>
+            </div>
+          <?php endif; ?>   
         </fieldset>  
       </form>  
 

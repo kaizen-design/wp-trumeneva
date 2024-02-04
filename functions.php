@@ -50,3 +50,23 @@ register_nav_menus([
  * Add theme supported features.
  */
 add_theme_support('post-thumbnails');
+
+add_action( 'wp_ajax_send_email', 'wpse_sendmail' );
+add_action( 'wp_ajax_nopriv_send_email', 'wpse_sendmail' );
+
+function wpse_sendmail() {
+  $email = get_option('admin_email');
+  $name = $_POST['name'];
+  $message = $_POST['message'];
+  $body = '<p>От кого: ' . $name . "</p>";
+  $body .= '<p>Сообщение: ' . $message . "</p>";
+  $headers = "Content-Type: text/html; charset=UTF-8\r\n";
+    
+  if(mail($email, "Сообщение с сайта", $body, $headers)) {
+    echo 'Message has been successfully sent';
+  } else {
+    echo 'Failed to send the message';
+  }
+
+  die();
+}

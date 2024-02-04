@@ -106,28 +106,27 @@ const APP = {
 
       // Get form data
       const formData = new FormData($form);
+      formData.append('action', 'send_email');
 
       // Disable submit button
       $button.setAttribute("disabled", true);
       $button.textContent = "Отправка...";
 
-      return new Promise((resolve, reject) => {
-        // Do API request here...
-        setTimeout(() => {
-          resolve();
-        }, 3000);
+      return fetch('/wp-admin/admin-ajax.php', {
+        method: 'POST',
+        body: formData,
+      }).then((res) => {
+        // Show success message
+        $formMain.classList.add("d-none");
+        $formResult.classList.remove("d-none");
       })
-        .then((res) => {
-          // Show success message
-          $formMain.classList.add("d-none");
-          $formResult.classList.remove("d-none");
-        })
-        .catch((error) => console.error(error))
-        .finally(() => {
-          // Restore button text
-          $button.removeAttribute("disabled");
-          $button.textContent = buttonText;
-        });
+      .catch((error) => console.error(error))
+      .finally(() => {
+        // Restore button text
+        $button.removeAttribute("disabled");
+        $button.textContent = buttonText;
+      });
+        
     });
 
     // Form cleanup
