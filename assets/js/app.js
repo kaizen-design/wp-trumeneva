@@ -90,16 +90,16 @@ const APP = {
     const $button = $form.querySelector('[type="submit"]');
     const buttonText = $button.textContent;
 
-    let email;
+    let email, specialistName;
 
     // Populate additional form data
     $modal.addEventListener("show.bs.modal", (event) => {
       const $invoker = event.relatedTarget;
-      const recipient = $invoker.getAttribute("data-specialist");
+      specialistName = $invoker.getAttribute("data-specialist");
       email = $invoker.getAttribute("data-email");
-      if (recipient) {
+      if (specialistName) {
         const $name = $modal.querySelector("#specialistName");
-        $name.textContent = recipient;
+        $name.textContent = specialistName;
       }
     });
 
@@ -113,6 +113,7 @@ const APP = {
 
       if (email) {
         formData.append('email', email);
+        formData.append('specialist', specialistName);
       }
 
       // Disable submit button

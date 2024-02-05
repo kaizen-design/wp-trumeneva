@@ -58,13 +58,15 @@ function wpse_sendmail() {
   $email = get_option('admin_email');
   $name = $_POST['name'];
   $message = $_POST['message'];
+  
   $body = '<p>От кого: ' . $name . "</p>";
   $body .= '<p>Сообщение: ' . $message . "</p>";
   $headers = "Content-Type: text/html; charset=UTF-8\r\n";
   $subject = 'Присоединение специалиста';
 
   if (isset($_POST['email']) && $_POST['email']) {
-    $subject = 'Запись к специалисту';
+    $specialist = $_POST['specialist'];
+    $subject = 'Запись к специалисту:' . $specialist;
     $email .= ", " . $_POST['email'];
   }
     

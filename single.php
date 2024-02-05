@@ -25,15 +25,15 @@ $related_posts = (new Blog)->getPosts(-1, [get_the_ID()]);
       </nav>
       <h1 class="h2 post-title mb-0"><?php single_post_title(); ?></h1>
     </div>  
-    <div class="post-img">
-      <?php if (get_the_post_thumbnail_url()): ?>
+    <?php if (get_the_post_thumbnail_url()): ?>
+      <div class="post-img">      
         <img 
           src="<?=get_the_post_thumbnail_url()?>" 
           class="img-fluid h-100 w-100 object-fit-cover" 
           alt="<?php single_post_title(); ?>"
         >  
-      <?php endif; ?>
-    </div>
+      </div>
+    <?php endif; ?>
   </div>
   <div class="container d-flex flex-column gap-3">
     <span class="post-date"><?=get_the_date()?></span>
