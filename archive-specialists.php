@@ -51,26 +51,5 @@ $menu = [
 <?php get_template_part('partials/sections/cta', null, []) ?>
 <?php get_template_part('partials/sections/alter-ego', null, []) ?>
 
-  <?php
-  if (have_posts()) :
-
-    if (is_home() && !is_front_page()) :
-  ?>
-      <header>
-        <h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-      </header>
-  <?php
-    endif;
-
-    while (have_posts()) :
-      the_post();
-      the_content();
-    endwhile;
-
-    the_posts_navigation();
-
-  endif;
-  ?>
-
 <?php
 get_footer();
